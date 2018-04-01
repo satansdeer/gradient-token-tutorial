@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import TokensList from "./TokensList";
 import { Provider } from "mobx-react";
-import Modal from "./Modal";
+import Modal from "components/Modal";
 
 import stores from "./stores";
 stores.contractsStore.setup();

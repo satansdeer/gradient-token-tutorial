@@ -3,7 +3,6 @@ import TokenItem from "./TokenItem.jsx";
 import TokenView from "./TokenView";
 import Button from "components/Button";
 import { inject, observer } from "mobx-react";
-import "./TokenList.css";
 
 export default inject("gradientTokenStore", "modalStore")(
   observer(
