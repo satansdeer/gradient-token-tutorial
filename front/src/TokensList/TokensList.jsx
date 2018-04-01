@@ -1,6 +1,7 @@
 import React from "react";
 import TokenItem from "./TokenItem.jsx";
 import TokenView from "./TokenView";
+import Button from "components/Button";
 import { inject, observer } from "mobx-react";
 import "./TokenList.css";
 
@@ -10,12 +11,7 @@ export default inject("gradientTokenStore", "modalStore")(
       return (
         <div style={{ marginTop: 50 }}>
           <h1>Gradient Tokens</h1>
-          <button
-            className={`button ${!isOwner && "is-disabled"}`}
-            onClick={mintToken}
-          >
-            Mint token
-          </button>
+          <Button disabled={!isOwner} onClick={mintToken} label="Mint token" />
           <div
             style={{
               display: "grid",

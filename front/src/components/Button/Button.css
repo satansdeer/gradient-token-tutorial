@@ -1,4 +1,4 @@
-.button {
+.Button {
   background-color: rgb(251, 163, 113);
   border-radius: 4px;
   border: 2px solid #0b0b0b;
@@ -9,10 +9,11 @@
   padding: 15px 20px;
 }
 
-.button.is-disabled {
+.Button.is-disabled {
   background-color: #ccc;
   border-color: #999;
   box-shadow: #aaa 0px 0px 0px 3px inset;
   color: #eee;
   pointer-events: none;
 }
+

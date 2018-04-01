@@ -1,5 +1,6 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
+import Button from "components/Button";
 import "./Modal.css";
 
 export default inject("modalStore")(
@@ -8,9 +9,7 @@ export default inject("modalStore")(
       <div className={`Modal-backdrop ${modal.show && "is-visible"}`}>
         <div className="Modal">
           {modal.body}
-          <button className="Modal-close_button" onClick={closeModal}>
-            Close
-          </button>
+          <Button onClick={closeModal} label="Close" />
         </div>
       </div>
     ) : null;
