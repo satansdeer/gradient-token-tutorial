@@ -12,7 +12,7 @@ class ContractsStore {
   async setup() {
     const { tokenAddress, auctionAddress } = addresses;
 
-    const provider = getProvider();
+    const provider = getProvider(true);
 
     const GradientToken = contract(GradientTokenArtifact);
     GradientToken.setProvider(provider);

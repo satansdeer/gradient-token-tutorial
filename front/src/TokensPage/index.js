@@ -5,11 +5,11 @@ import { inject, observer } from "mobx-react";
 import "./TokensPage.css";
 
 export default inject("gradientTokenStore")(
-  observer(({ gradientTokenStore: { mintToken, isOwner } }) => {
+  observer(({ gradientTokenStore: { mintToken } }) => {
     return (
       <div className="TokensPage">
         <h1>Gradient Tokens</h1>
-        <Button disabled={!isOwner} onClick={mintToken} label="Mint token" />
+        <Button onClick={mintToken} label="Mint token" />
         <div className="TokensPage-tokens">
           <TokensList />
         </div>

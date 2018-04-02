@@ -1,17 +1,15 @@
 import { observable, computed, action, autorun, decorate, when } from "mobx";
+import randomColor from "utils/randomColor";
 
 class GradientTokenStore {
   tokens = [];
   owner = null;
   isLoading = true;
 
-  constructor(contractsStore, web3Store) {
+  constructor(contractsStore) {
     this.contractsStore = contractsStore;
-    this.web3Store = web3Store;
     when(
-      () =>
-        this.contractsStore.gradientTokenInstance &&
-        this.web3Store.currentAccount,
+      () => this.contractsStore.gradientTokenInstance,
       async () => {
         const { gradientTokenInstance } = this.contractsStore;
         const owner = await gradientTokenInstance.owner();
@@ -23,10 +21,7 @@ class GradientTokenStore {
 
   fetchTokens = async () => {
     const { gradientTokenInstance } = this.contractsStore;
-    const { currentAccount } = this.web3Store;
-    console.log(currentAccount);
-    console.log(this.owner);
-    const tokens = await gradientTokenInstance.tokensOf(currentAccount);
+    const tokens = await gradientTokenInstance.tokensOf(this.owner);
     const gradients = await Promise.all(
       tokens.map(async token => {
         return gradientTokenInstance.getGradient(token);
@@ -36,13 +31,9 @@ class GradientTokenStore {
     this.setIsLoading(false);
   };
 
-  randomColor() {
-    return "#" + ((Math.random() * 0xffffff) << 0).toString(16);
-  }
-
   mintToken = async () => {
     const { gradientTokenInstance } = this.contractsStore;
-    const gradient = [this.randomColor(), this.randomColor()];
+    const gradient = [randomColor(), randomColor()];
     await gradientTokenInstance.mint(gradient[0], gradient[1], {
       from: this.owner,
       gas: 170000
@@ -65,14 +56,6 @@ class GradientTokenStore {
   setIsLoading(value) {
     this.isLoading = value;
   }
-
-  get isOwner() {
-    const { currentAccount } = this.web3Store;
-    if (!currentAccount || !this.owner) {
-      return;
-    }
-    return this.owner === currentAccount;
-  }
 }
 
 export default decorate(GradientTokenStore, {
@@ -82,6 +65,5 @@ export default decorate(GradientTokenStore, {
   setOwner: action,
   setTokens: action,
   setIsLoading: action,
-  appendToken: action,
-  isOwner: computed
+  appendToken: action
 });
