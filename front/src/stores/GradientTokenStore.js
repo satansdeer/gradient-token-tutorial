@@ -8,16 +8,15 @@ class GradientTokenStore {
 
   constructor(contractsStore) {
     this.contractsStore = contractsStore;
-    when(
-      () => this.contractsStore.gradientTokenInstance,
-      async () => {
-        const { gradientTokenInstance } = this.contractsStore;
-        const owner = await gradientTokenInstance.owner();
-        this.setOwner(owner);
-        this.fetchTokens();
-      }
-    );
+    when(() => this.contractsStore.gradientTokenInstance, this.setup);
   }
+
+  setup = async () => {
+    const { gradientTokenInstance } = this.contractsStore;
+    const owner = await gradientTokenInstance.owner();
+    this.setOwner(owner);
+    this.fetchTokens();
+  };
 
   fetchTokens = async () => {
     const { gradientTokenInstance } = this.contractsStore;
@@ -27,7 +26,9 @@ class GradientTokenStore {
         return gradientTokenInstance.getGradient(token);
       })
     );
-    this.setTokens(gradients);
+    if (gradients.length) {
+      this.setTokens(gradients);
+    }
     this.setIsLoading(false);
   };
 
