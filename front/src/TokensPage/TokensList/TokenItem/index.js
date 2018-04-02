@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { PropTypes as MobxPropTypes } from "mobx-react";
 
 import TokenImage from "components/TokenImage";
 import "./TokenItem.css";
@@ -16,7 +17,7 @@ const TokenItem = ({ token, onClick }) => {
 };
 
 TokenItem.propTypes = {
-  token: PropTypes.array.isRequired,
+  token: MobxPropTypes.arrayOrObservableArray,
   onClick: PropTypes.func
 };
 

@@ -5,7 +5,7 @@ import TokensList from "./index";
 
 describe.only("<TokensPage />", () => {
   const mockGradientTokenStore = {
-    tokens: [["#fff", "#000"]]
+    tokens: [{ index: 0, gradient: ["#fff", "#000"] }]
   };
   const mockModalStore = {
     modalStore: jest.fn()

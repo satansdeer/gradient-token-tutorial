@@ -5,6 +5,7 @@ class GradientTokenStore {
   tokens = [];
   owner = null;
   isLoading = true;
+  tokenIndex = 0;
 
   constructor(contractsStore) {
     this.contractsStore = contractsStore;
@@ -26,11 +27,21 @@ class GradientTokenStore {
         return gradientTokenInstance.getGradient(token);
       })
     );
-    if (gradients.length) {
-      this.setTokens(gradients);
-    }
     this.setIsLoading(false);
+    if (!gradients.length) {
+      return;
+    }
+    this.setTokens(this.indexedTokens(gradients));
   };
+
+  indexedTokens(gradients) {
+    return gradients.map(gradient => {
+      return {
+        gradient,
+        index: this.tokenIndex++
+      };
+    });
+  }
 
   mintToken = async () => {
     const { gradientTokenInstance } = this.contractsStore;
@@ -39,11 +50,11 @@ class GradientTokenStore {
       from: this.owner,
       gas: 170000
     });
-    this.appendToken(gradient);
+    this.appendToken({ gradient, index: this.tokenIndex++ });
   };
 
   setTokens(tokens) {
-    this.tokens = tokens;
+    this.tokens.replace(tokens);
   }
 
   appendToken(token) {

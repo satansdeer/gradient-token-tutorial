@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { PropTypes as MobxPropTypes } from "mobx-react";
 import TokenImage from "components/TokenImage";
 import "./TokenView.css";
 
@@ -13,7 +13,7 @@ const TokenView = ({ token }) => (
 );
 
 TokenView.propTypes = {
-  token: PropTypes.array.isRequired
+  token: MobxPropTypes.arrayOrObservableArray
 };
 
 export default TokenView;

@@ -30,8 +30,8 @@ describe("GradientTokenStore", () => {
 
     const gradientTokenStore = new GradientTokenStore(mockContractsStore);
     await gradientTokenStore.fetchTokens();
-    expect(gradientTokenStore.tokens[0][0]).toEqual("#000");
-    expect(gradientTokenStore.tokens[0][1]).toEqual("#fff");
+    expect(gradientTokenStore.tokens[0].gradient[0]).toEqual("#000");
+    expect(gradientTokenStore.tokens[0].gradient[1]).toEqual("#fff");
   });
 
   describe("mintToken", async () => {

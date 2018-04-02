@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { PropTypes as MobxPropTypes } from "mobx-react";
 import { inject, observer } from "mobx-react";
 
 import TokenItem from "./TokenItem";
@@ -14,11 +15,11 @@ const TokensList = ({
     <Fragment>
       {tokens.length ? (
         <div className="TokensList">
-          {tokens.map((token, index) => (
+          {tokens.map(token => (
             <TokenItem
-              key={index}
-              token={token}
-              onClick={() => showModal(<TokenView token={token} />)}
+              key={token.index}
+              token={token.gradient}
+              onClick={() => showModal(<TokenView token={token.gradient} />)}
             />
           ))}
         </div>
@@ -31,7 +32,7 @@ const TokensList = ({
 
 TokensList.propTypes = {
   gradientTokenStore: PropTypes.shape({
-    tokens: PropTypes.array
+    tokens: MobxPropTypes.arrayOrObservableArrayOf(PropTypes.object)
   }),
   modalStore: PropTypes.shape({
     showModal: PropTypes.func
