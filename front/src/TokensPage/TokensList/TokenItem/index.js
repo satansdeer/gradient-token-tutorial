@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import TokenImage from "components/TokenImage";
 import "./TokenItem.css";
 
-export default ({ token, onClick }) => {
+const TokenItem = ({ token, onClick }) => {
   return (
     <div className="TokenItem" onClick={onClick}>
       <div className="TokenItem-image_wrapper">
@@ -12,3 +14,10 @@ export default ({ token, onClick }) => {
     </div>
   );
 };
+
+TokenItem.propTypes = {
+  token: PropTypes.array.isRequired,
+  onClick: PropTypes.func
+};
+
+export default TokenItem;
