@@ -1,6 +1,6 @@
 import React from "react";
-import TokensList from "./TokensList";
 import Button from "components/Button";
+import TokensList from "./TokensList";
 import { inject, observer } from "mobx-react";
 import "./TokensPage.css";
 

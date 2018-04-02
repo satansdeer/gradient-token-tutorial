@@ -1,19 +1,13 @@
 import React from "react";
-import TokenItem from "./TokenItem.jsx";
+import TokenItem from "./TokenItem";
 import TokenView from "./TokenView";
-import Button from "components/Button";
 import { inject, observer } from "mobx-react";
+import "./TokensList.css";
 
 export default inject("gradientTokenStore", "modalStore")(
   observer(({ gradientTokenStore: { tokens }, modalStore }) => {
     return (
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridGap: "30px 20px"
-        }}
-      >
+      <div className="TokensList">
         {tokens.map((token, index) => (
           <TokenItem
             key={index}
