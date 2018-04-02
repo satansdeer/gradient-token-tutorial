@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
-import Button from "./index.js";
+import Button from "./index";
 
 describe("<Button />", () => {
   const label = "Test";

@@ -9,6 +9,7 @@ const WithLoader = ({ isLoading, children, ...rest }) =>
 WithLoader.propTypes = {
   isLoading: PropTypes.bool
 };
+
 WithLoader.defaultProps = {
   isLoading: false
 };
