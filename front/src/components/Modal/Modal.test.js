@@ -14,7 +14,9 @@ describe("<Modal />", () => {
     );
 
     it("renders and matches the snapshot", () => {
-      const component = renderer.create(<Modal modalStore={mockModalStore} />);
+      const component = renderer.create(
+        <Modal.wrappedComponent modalStore={mockModalStore} />
+      );
       const tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -34,7 +36,7 @@ describe("<Modal />", () => {
       <Modal.wrappedComponent modalStore={mockModalStore} />
     );
 
-    it("renders and matches the snapshot", () => {
+    it("returns null", () => {
       expect(component.getElement()).toBe(null);
     });
   });
