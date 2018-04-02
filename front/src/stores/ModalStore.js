@@ -11,7 +11,7 @@ class ModalStore {
     this.modal.body = body;
   };
 
-  closeModal = () => {
+  hideModal = () => {
     this.modal.show = false;
     this.modal.body = null;
   };
@@ -20,5 +20,5 @@ class ModalStore {
 export default decorate(ModalStore, {
   modal: observable,
   showModal: action,
-  closeModal: action
+  hideModal: action
 });

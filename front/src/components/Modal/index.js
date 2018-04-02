@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import Button from "components/Button";
 import "./Modal.css";
 
-const Modal = ({ modalStore: { modal, closeModal } }) => {
+const Modal = ({ modalStore: { modal, hideModal } }) => {
   return modal.show ? (
     <div className={`Modal-backdrop ${modal.show && "is-visible"}`}>
       <div className="Modal">
         {modal.body}
-        <Button onClick={closeModal} label="Close" />
+        <Button onClick={hideModal} label="Close" />
       </div>
     </div>
   ) : null;
@@ -21,7 +21,7 @@ Modal.propTypes = {
       show: PropTypes.bool,
       body: PropTypes.object
     }),
-    closeModal: PropTypes.func.isRequired
+    hideModal: PropTypes.func.isRequired
   }).isRequired
 };
 

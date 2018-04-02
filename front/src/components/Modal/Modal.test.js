@@ -7,7 +7,7 @@ describe("<Modal />", () => {
   describe("when show is true and body provided", () => {
     const mockModalStore = {
       modal: { show: true, body: <div>Test</div> },
-      closeModal: jest.fn()
+      hideModal: jest.fn()
     };
     const component = shallow(
       <Modal.wrappedComponent modalStore={mockModalStore} />
@@ -21,16 +21,16 @@ describe("<Modal />", () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it("calls closeModal method when close button is clicked", () => {
+    it("calls hideModal method when close button is clicked", () => {
       component.find("Button").simulate("click");
-      expect(mockModalStore.closeModal).toHaveBeenCalled();
+      expect(mockModalStore.hideModal).toHaveBeenCalled();
     });
   });
 
   describe("when show is false and body is null", () => {
     const mockModalStore = {
       modal: { show: false, body: null },
-      closeModal: jest.fn()
+      hideModal: jest.fn()
     };
     const component = shallow(
       <Modal.wrappedComponent modalStore={mockModalStore} />
