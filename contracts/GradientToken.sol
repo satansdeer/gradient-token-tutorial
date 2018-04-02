@@ -21,8 +21,6 @@ contract GradientToken is ERC721Token, Ownable {
     inner = _grad.inner;
   }
 
-  function testtesttest() {}
-
   function mint(string _outer, string _inner) public payable onlyOwner{
     Gradient memory _gradient = Gradient({ outer: _outer, inner: _inner });
     uint _gradientId = gradients.push(_gradient) - 1;
