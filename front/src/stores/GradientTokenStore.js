@@ -1,4 +1,4 @@
-import { observable, computed, action, autorun, decorate, when } from "mobx";
+import { observable, action, decorate, when } from "mobx";
 import randomColor from "utils/randomColor";
 
 class GradientTokenStore {

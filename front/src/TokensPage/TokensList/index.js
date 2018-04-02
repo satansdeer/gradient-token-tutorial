@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import TokenItem from "./TokenItem";
 import TokenView from "./TokenView";
 import WithLoader from "components/WithLoader";

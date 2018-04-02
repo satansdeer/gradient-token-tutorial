@@ -1,8 +1,8 @@
-import { observable, computed, action, autorun, decorate } from "mobx";
+import { observable, decorate } from "mobx";
 import contract from "truffle-contract";
 
 import GradientTokenArtifact from "../contracts/GradientToken.json";
-import TokenAuctionArtifact from "../contracts/TokenAuction.json";
+
 import addresses from "../addresses.json";
 import getProvider from "utils/getProvider";
 
@@ -10,9 +10,9 @@ class ContractsStore {
   gradientTokenInstance = null;
 
   async setup() {
-    const { tokenAddress, auctionAddress } = addresses;
+    const { tokenAddress } = addresses;
 
-    const provider = getProvider(true);
+    const provider = getProvider();
 
     const GradientToken = contract(GradientTokenArtifact);
     GradientToken.setProvider(provider);

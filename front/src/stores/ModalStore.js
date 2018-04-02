@@ -1,4 +1,4 @@
-import { observable, computed, action, autorun, decorate } from "mobx";
+import { observable, action, decorate } from "mobx";
 
 class ModalStore {
   modal = {
