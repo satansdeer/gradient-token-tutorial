@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./App.css";
-import TokensList from "./TokensList";
 import { Provider } from "mobx-react";
 import Modal from "components/Modal";
-
+import TokensPage from "./TokensPage";
 import stores from "./stores";
+import "./App.css";
+
 stores.contractsStore.setup();
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
       <Provider {...stores}>
         <div className="App">
           <Modal />
-          <TokensList />
+          <TokensPage />
         </div>
       </Provider>
     );
