@@ -5,8 +5,6 @@ import TokensPage from "./TokensPage";
 import stores from "./stores";
 import "./App.css";
 
-stores.contractsStore.setup();
-
 class App extends Component {
   render() {
     return (
