@@ -3,6 +3,7 @@ import { observable, computed, action, autorun, decorate, when } from "mobx";
 class GradientTokenStore {
   tokens = [];
   owner = null;
+  isLoading = true;
 
   constructor(contractsStore, web3Store) {
     this.contractsStore = contractsStore;
@@ -32,6 +33,7 @@ class GradientTokenStore {
       })
     );
     this.setTokens(gradients);
+    this.setIsLoading(false);
   };
 
   randomColor() {
@@ -60,6 +62,10 @@ class GradientTokenStore {
     this.owner = owner;
   }
 
+  setIsLoading(value) {
+    this.isLoading = value;
+  }
+
   get isOwner() {
     const { currentAccount } = this.web3Store;
     if (!currentAccount || !this.owner) {
@@ -72,8 +78,10 @@ class GradientTokenStore {
 export default decorate(GradientTokenStore, {
   owner: observable,
   tokens: observable,
+  isLoading: observable,
   setOwner: action,
   setTokens: action,
+  setIsLoading: action,
   appendToken: action,
   isOwner: computed
 });

@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import TokenItem from "./TokenItem";
 import TokenView from "./TokenView";
+import WithLoader from "components/WithLoader";
 import { inject, observer } from "mobx-react";
 import "./TokensList.css";
 
 export default inject("gradientTokenStore", "modalStore")(
-  observer(({ gradientTokenStore: { tokens }, modalStore }) => {
+  observer(({ gradientTokenStore: { tokens, isLoading }, modalStore }) => {
     return (
-      <Fragment>
+      <WithLoader isLoading={isLoading}>
         {tokens.length ? (
           <div className="TokensList">
             {tokens.map((token, index) => (
@@ -21,9 +22,11 @@ export default inject("gradientTokenStore", "modalStore")(
             ))}
           </div>
         ) : (
-          <div className="TokensList-label_empty">You don't have tokens yet.</div>
+          <div className="TokensList-label_empty">
+            You don't have tokens yet.
+          </div>
         )}
-      </Fragment>
+      </WithLoader>
     );
   })
 );
