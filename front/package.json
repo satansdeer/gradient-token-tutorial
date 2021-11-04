@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "director": "^1.2.8",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "mobx": "^4.1.1",
     "mobx-react": "^5.0.0",
     "react": "^16.2.0",
