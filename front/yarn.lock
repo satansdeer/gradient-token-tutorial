@@ -6937,31 +6937,35 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
-truffle-blockchain-utils@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/truffle-blockchain-utils/-/truffle-blockchain-utils-0.0.4.tgz#e31a346db61775c80ccd6f632de5e72f97f20ea5"
+truffle-blockchain-utils@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/truffle-blockchain-utils/-/truffle-blockchain-utils-0.0.5.tgz#a4e5c064dadd69f782a137f3d276d21095da7a47"
+  integrity sha1-pOXAZNrdafeCoTfz0nbSEJXaekc=
 
-truffle-contract-schema@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/truffle-contract-schema/-/truffle-contract-schema-2.0.0.tgz#535378c0b6a7f58011ea8d84f57771771cb45163"
+truffle-contract-schema@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/truffle-contract-schema/-/truffle-contract-schema-2.0.3.tgz#0af8e19a39c630730bc19dd41b48f5b4137a6977"
+  integrity sha512-eI5cFifbB3zpcO4RsXSnjN9JMSlJ4M50GQPdrfbrIXRTXHsyQ433SkgFjIATUwfq++TXWkCRfKMjN8eA7YQ3+Q==
   dependencies:
     ajv "^5.1.1"
     crypto-js "^3.1.9-1"
     debug "^3.1.0"
 
-truffle-contract@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/truffle-contract/-/truffle-contract-3.0.4.tgz#be169ce00a14d025431e95318e8bae049fca9cfc"
+truffle-contract@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/truffle-contract/-/truffle-contract-3.0.8.tgz#6588b1b816060f6ac6876d77948934b929574067"
+  integrity sha512-uhXb/G4dORU4RjFlwZZbFT0n5BS8akify+MaRsnWWs4SA/bo6x4/bQs1xtdO3b5Cl9nXiOX88wdQzRj3xtPVUg==
   dependencies:
     ethjs-abi "0.1.8"
-    truffle-blockchain-utils "^0.0.4"
-    truffle-contract-schema "^2.0.0"
-    truffle-error "0.0.2"
-    web3 "^0.20.1"
+    truffle-blockchain-utils "^0.0.5"
+    truffle-contract-schema "^2.0.3"
+    truffle-error "^0.0.3"
+    web3 "0.20.6"
 
-truffle-error@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/truffle-error/-/truffle-error-0.0.2.tgz#01b189b78505566ae1689c239c7ca2dd121cfe4c"
+truffle-error@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/truffle-error/-/truffle-error-0.0.3.tgz#4bf55242e14deee1c7194932709182deff2c97ca"
+  integrity sha1-S/VSQuFN7uHHGUkycJGC3v8sl8o=
 
 tty-browserify@0.0.0:
   version "0.0.0"
@@ -7247,9 +7251,10 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-web3@^0.20.1:
+web3@0.20.6:
   version "0.20.6"
   resolved "https://registry.yarnpkg.com/web3/-/web3-0.20.6.tgz#3e97306ae024fb24e10a3d75c884302562215120"
+  integrity sha1-PpcwauAk+yThCj11yIQwJWIhUSA=
   dependencies:
     bignumber.js "git+https://github.com/frozeman/bignumber.js-nolookahead.git"
     crypto-js "^3.1.4"
